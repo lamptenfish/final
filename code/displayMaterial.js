@@ -5,32 +5,32 @@
 // random generate number
 // pull out the corresponding image
 // one after second one 
-// shrink and able to scroll down 
-const imag = [
-   "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/cartoon.jpeg"></img>""
+// shrink and able to scroll down
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/dinouse.jpeg"></img>"
+const images = ["cartoon", "dinouse", "dog", "drawingtiger"];
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/dog.jpeg"></img>"
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/drawingtiger.jpeg"></img>"
+function displayImage() {
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/grapefruit.jpeg"></img>"
+    const randomIndex = Math.floor(Math.random()*(images.length));
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/huke.jpeg"></img>"
+    console.log(randomIndex, images[randomIndex])
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/images.jpeg"></img>"
+    const newImage = `<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/${images[randomIndex]}.jpeg">`
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/rock.jpeg"></img>"
+    $('#image-container').append(newImage);
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/rollercoster.jpeg"></img>"
+    // delete image
+    images.splice(randomIndex, 1);
 
-    "<img id="displayImage" src="https://raw.githubusercontent.com/lamptenfish/final/main/spirals/image/spider.jpeg"></img>"
-];
-for (i=imag.length, i>=0, i--){
-const nextImage = new Image imag[Math.floor(Math.random()*(imag.length + 1))]
-//display image
-delete imag[nextImage];
+    if(images.length == 0) {
+        $('#add-image').attr("disabled", "true");
+    }
+
 }
 
+$('#add-image').click(function(){
 
+    displayImage();
+
+})
