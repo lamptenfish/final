@@ -7,7 +7,7 @@
 // one after second one 
 // shrink and able to scroll down
 
-const images = ["cartoon", "dinouse", "dog", "drawingtiger"];
+const images = [];
 
 
 function displayImage() {
