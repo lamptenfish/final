@@ -31,6 +31,5 @@ function displayImage() {
 
 $('#add-image').click(function(){
 
-    displayImage();
-
+    displayImage()
 })
